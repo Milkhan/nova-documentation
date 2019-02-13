@@ -1,5 +1,5 @@
 <template>
-    <card class="w-1/5 bg-white p-6 self-start" style="min-height: 300px">
+    <card class="w-1/5 bg-blue p-6 self-start" style="min-height: 300px">
         <h3 class="mb-2">Contents</h3>
         <ul>
             <li class="mb-2" v-for="item of content">

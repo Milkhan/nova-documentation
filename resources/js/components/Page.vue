@@ -4,7 +4,7 @@
 
         <div class="flex flex-row">
             <sidebar :content="sidebar"></sidebar>
-            <card class="w-4/5 bg-white p-6 mr-2" style="min-height: 300px">
+            <card class="w-4/5 bg-white p-6 ml-10" style="min-height: 300px">
                 <div class="help-content" v-html="content"></div>
             </card>
         </div>
