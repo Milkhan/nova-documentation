@@ -1,9 +1,9 @@
 <?php
-namespace Dniccum\NovaDocumentation\Http\Controllers;
+namespace Milkhan\NovaHelp\Http\Controllers;
 
-use Dniccum\NovaDocumentation\Library\MarkdownUtility;
+use Milkhan\NovaHelp\Library\MarkdownUtility;
 
-class NovaDocumentationController
+class NovaHelpController
 {
     /**
      * @var MarkdownUtility $parser
@@ -37,7 +37,7 @@ class NovaDocumentationController
         return response()
             ->json([
                 'home' => $homeContent,
-                'title' => config('novadocumentation.title')
+                'title' => config('novahelp.title')
             ]);
     }
 }

@@ -1,13 +1,13 @@
 const routes = [{
-    path: '/documentation/home',
-    redirect: '/documentation'
+    path: '/help/home',
+    redirect: '/help'
 }];
 let sidebar = [];
 
 Nova.config.pages.map((page) => {
     let route = {
-        name: `documentation/${page.pageRoute}`,
-        path: `/documentation/${page.pageRoute}`,
+        name: `help/${page.pageRoute}`,
+        path: `/help/${page.pageRoute}`,
         component: require('./components/Page'),
         props: {
             file: page.file,
@@ -20,8 +20,8 @@ Nova.config.pages.map((page) => {
     };
 
     if (page.home) {
-        route.name = 'documentation';
-        route.path = '/documentation';
+        route.name = 'help';
+        route.path = '/help';
 
         routes.push(route);
     } else {

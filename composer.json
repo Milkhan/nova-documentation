@@ -1,18 +1,17 @@
 {
-    "name": "dniccum/nova-documentation",
-    "description": "A Laravel Nova tool that allows you to add markdown-based documentation to your administrator's dashboard.",
-    "homepage": "https://github.com/dniccum/nova-documentation",
+    "name": "milkhan/nova-help",
+    "description": "A Laravel Nova tool that allows you to add markdown-based help to your administrator's dashboard based on Doug Niccum's Documentation tool.",
+    "homepage": "https://github.com/milkhan/nova-help",
     "keywords": [
         "laravel",
         "nova",
         "markdown",
-        "documentation"
+        "help"
     ],
     "authors": [
         {
-            "name": "Doug Niccum",
-            "email": "dniccumdesign@gmail.com",
-            "homepage": "http://dniccumdesign.com",
+            "name": "Mustafa ilkhan",
+            "email": "milkhan@gmail.com",
             "role": "Developer"
         }
     ],
@@ -23,13 +22,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Dniccum\\NovaDocumentation\\": "src/"
+            "Milkhan\\NovaHelp\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Dniccum\\NovaDocumentation\\ToolServiceProvider"
+                "Milkhan\\NovaHelp\\ToolServiceProvider"
             ]
         }
     },

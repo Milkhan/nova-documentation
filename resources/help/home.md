@@ -1,4 +1,4 @@
-# Welcome to your documentation
+# Welcome to your Help
 
 Within this area, you can:
 

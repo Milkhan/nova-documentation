@@ -3,10 +3,10 @@
         <heading class="mb-6">{{ title }}</heading>
 
         <div class="flex flex-row">
-            <card class="w-4/5 bg-white p-6 mr-2" style="min-height: 300px">
-                <div class="documentation-content" v-html="content"></div>
-            </card>
             <sidebar :content="sidebar"></sidebar>
+            <card class="w-4/5 bg-white p-6 mr-2" style="min-height: 300px">
+                <div class="help-content" v-html="content"></div>
+            </card>
         </div>
     </div>
 </template>
@@ -33,7 +33,7 @@
         },
         mounted() {
             setTimeout(() => {
-                document.querySelectorAll('div.documentation-content pre code').forEach((block) => {
+                document.querySelectorAll('div.help-content pre code').forEach((block) => {
                     highlightjs.highlightBlock(block);
                 });
             }, 500)

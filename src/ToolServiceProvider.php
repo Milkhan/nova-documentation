@@ -1,17 +1,17 @@
 <?php
 
-namespace Dniccum\NovaDocumentation;
+namespace Milkhan\NovaHelp;
 
-use Dniccum\NovaDocumentation\Library\MarkdownUtility;
+use Milkhan\NovaHelp\Library\MarkdownUtility;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Dniccum\NovaDocumentation\Http\Middleware\Authorize;
+use Milkhan\NovaHelp\Http\Middleware\Authorize;
 
 class ToolServiceProvider extends ServiceProvider
 {
-    private $config = 'novadocumentation';
+    private $config = 'novahelp';
 
     /**
      * @var MarkdownUtility $utility
@@ -28,7 +28,7 @@ class ToolServiceProvider extends ServiceProvider
     {
         $this->utility = new MarkdownUtility();
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-documentation');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-help');
 
         $this->app->booted(function () {
             $this->routes();
@@ -49,8 +49,8 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/../resources/documentation/home.md' => resource_path('documentation/home.md'),
-            __DIR__.'/../resources/documentation/sample.md' => resource_path('documentation/sample.md'),
+            __DIR__.'/../resources/help/home.md' => resource_path('help/home.md'),
+            __DIR__.'/../resources/help/sample.md' => resource_path('help/sample.md'),
         ]);
     }
 
@@ -66,7 +66,7 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova', Authorize::class])
-                ->prefix('nova-vendor/nova-documentation')
+                ->prefix('nova-vendor/nova-help')
                 ->group(__DIR__.'/../routes/api.php');
     }
 

@@ -1,5 +1,5 @@
 <?php
-namespace Dniccum\NovaDocumentation\Library;
+namespace Milkhan\NovaHelp\Library;
 
 use cebe\markdown\Markdown;
 use cebe\markdown\GithubMarkdown;
@@ -25,7 +25,7 @@ class MarkdownUtility
      */
     public function __construct()
     {
-        $flavor = config('novadocumentation.flavor');
+        $flavor = config('novahelp.flavor');
 
         switch ($flavor) {
             case 'standard':
@@ -40,10 +40,10 @@ class MarkdownUtility
 
         $this->parser->html5 = true;
 
-        if (\File::exists(resource_path(config('novadocumentation.home')))) {
-            $this->home = resource_path(config('novadocumentation.home'));
+        if (\File::exists(resource_path(config('novahelp.home')))) {
+            $this->home = resource_path(config('novahelp.home'));
         } else {
-            $this->home = __DIR__.'/../../resources/'.config('novadocumentation.home');
+            $this->home = __DIR__.'/../../resources/'.config('novahelp.home');
         }
     }
 
@@ -64,14 +64,14 @@ class MarkdownUtility
      */
     public function buildPageRoutes()
     {
-        $pathName = explode('/', config('novadocumentation.home'));
+        $pathName = explode('/', config('novahelp.home'));
         $directory = '';
 
         for ($i = 0; $i < (count($pathName) - 1); $i++) {
             $directory .= $pathName[$i].'/';
         }
 
-        if (!\File::exists(resource_path(config('novadocumentation.home')))) {
+        if (!\File::exists(resource_path(config('novahelp.home')))) {
             $baseDirectory = __DIR__.'/../../resources/'.$directory;
             $files  = $this->getDirContents($baseDirectory);
         } else {
@@ -95,10 +95,10 @@ class MarkdownUtility
                 $content = $this->parse($fileToParse);
 
                 $options[] = [
-                    'title' => config('novadocumentation.title'),
+                    'title' => config('novahelp.title'),
                     'pageRoute' => $pathsToAdd[$i],
                     'file' => $target,
-                    'home' => is_int(strpos($files[$i], config('novadocumentation.home'))),
+                    'home' => is_int(strpos($files[$i], config('novahelp.home'))),
 //                    'content' => $this->replaceLinks($content, $pathsToAdd[$i]),
                     'content' => $content,
                     'pageTitle' => $this->getPageTitle($target)
@@ -208,7 +208,7 @@ class MarkdownUtility
     private function replaceLinks(string $htmlContent, array $otherOptions): string
     {
         $regex = "/<a.+href=['|\"](?!http|https)([^\"\']*)['|\"].*>(.+)<\/a>/i";
-        $output = preg_replace($regex,'<a href="/nova/documentation/\1">\2</a>',$htmlContent);
+        $output = preg_replace($regex,'<a href="/nova/help/\1">\2</a>',$htmlContent);
         $output = preg_replace("/(\.md|.text|.mdown|.mkdn|.mkd|.mdwn|mdtxt|.Rmd|.mdtext)/i",'"',$output);
 
         return $output;

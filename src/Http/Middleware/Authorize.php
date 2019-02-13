@@ -1,8 +1,8 @@
 <?php
 
-namespace Dniccum\NovaDocumentation\Http\Middleware;
+namespace Milkhan\NovaHelp\Http\Middleware;
 
-use Dniccum\NovaDocumentation\NovaDocumentation;
+use Milkhan\NovaHelp\NovaHelp;
 
 class Authorize
 {
@@ -15,6 +15,6 @@ class Authorize
      */
     public function handle($request, $next)
     {
-        return resolve(NovaDocumentation::class)->authorize($request) ? $next($request) : abort(403);
+        return resolve(NovaHelp::class)->authorize($request) ? $next($request) : abort(403);
     }
 }

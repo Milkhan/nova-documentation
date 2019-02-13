@@ -1,11 +1,11 @@
 <?php
 
-namespace Dniccum\NovaDocumentation;
+namespace Milkhan\NovaHelp;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 
-class NovaDocumentation extends Tool
+class NovaHelp extends Tool
 {
     /**
      * Perform any tasks that need to happen when the tool is booted.
@@ -14,8 +14,8 @@ class NovaDocumentation extends Tool
      */
     public function boot()
     {
-        Nova::script('nova-documentation', __DIR__.'/../dist/js/tool.js');
-        Nova::style('nova-documentation', __DIR__.'/../dist/css/tool.css');
+        Nova::script('nova-help', __DIR__.'/../dist/js/tool.js');
+        Nova::style('nova-help', __DIR__.'/../dist/css/tool.css');
     }
 
     /**
@@ -23,8 +23,8 @@ class NovaDocumentation extends Tool
      *
      * @return \Illuminate\View\View
      */
-    public function renderNavigation()
-    {
-        return view('nova-documentation::navigation');
-    }
+    // public function renderNavigation()
+    // {
+    //     return view('nova-help::navigation');
+    // }
 }

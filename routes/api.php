@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Dniccum\NovaDocumentation\Http\Controllers\NovaDocumentationController@index');
+Route::get('/', 'Milkhan\NovaHelp\Http\Controllers\NovaHelpController@index');

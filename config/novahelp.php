@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'title' => 'Documentation',
+    'title' => 'Help',
 
     /*
     |--------------------------------------------------------------------------
@@ -37,6 +37,6 @@ return [
     |
     */
 
-    'home' => 'documentation/home.md',
+    'home' => 'help/home.md',
 
 ];
